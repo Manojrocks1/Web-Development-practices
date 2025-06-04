@@ -1,0 +1,221 @@
+ Concept:
+HTML (HyperText Markup Language) is used to structure web pages. 
+->Think of it as the skeleton of a website.
+
+Basic HTML elements:
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My First Page</title>
+  </head>
+  <body>
+    <h1>Hello, world!</h1>
+    <p>This is my first web page.</p>
+  </body>
+</html>
+💬 Interview Questions:
+What is HTML?
+HTML stands for HyperText Markup Language. It is the standard markup language used to create web pages.
+
+Here's a breakdown of what that means:
+
+HyperText: Refers to the ability to link from one document to another (e.g., clicking on a link to go to a new page). 
+->This is a fundamental aspect of the World Wide Web.
+Markup Language: This means HTML uses a system of "tags" to annotate text, images, and other content to define their structure and meaning.
+->These tags tell web browsers how to display the content. 
+->For example, <h1> defines a main heading, <p> defines a paragraph, and <img> embeds an image.
+->In essence, HTML provides the structure and content of a web page. 
+->Think of it as the "skeleton" of a website. While HTML defines what content is on the page and its organization,
+ other technologies like CSS (Cascading Style Sheets) are used to control 
+ the appearance (styling, colors, fonts, layout), and JavaScript is used to add interactivity and dynamic behavior.
+
+2)1. Display Behavior (Block-level vs. Inline):
+
+<div> (Division): This is a block-level element.
+
+It typically starts on a new line.
+It takes up the full available width of its parent container.
+It's like a rectangular "block" or "box" that creates a division in the document flow.
+Think of it as creating a new section or a container for a group of elements.
+HTML
+
+<div>This is a div. It takes up its own line.</div>
+<div>This is another div. It also takes up its own line.</div>
+<p>This is a paragraph.</p>
+In the above example, each div would appear on a separate line, and the paragraph would also start on a new line after the second div.
+
+<span> (Span): This is an inline element.
+
+It does not start on a new line.
+It only takes up as much width as its content requires.
+It flows within the existing text or content.
+Think of it as highlighting or applying styles to a small segment of text within a larger line or paragraph.
+HTML
+
+<p>This is a paragraph with some <span style="color: blue;">blue text</span> and some <span style="font-weight: bold;">bold text</span>.</p>
+In this example, "blue text" and "bold text" would appear on the same line as the rest of the paragraph, but with their respective styles applied.
+
+2. Intended Use:
+
+<div>:
+
+Primarily used for structuring larger sections of a webpage or for grouping related block-level elements together.
+Often serves as a container for layout purposes, especially when used with CSS layout models like Flexbox or Grid.
+Does not carry any inherent semantic meaning on its own; it's a generic container.
+Examples: creating a header section, a content area, a sidebar, or a footer.
+<span>:
+
+->Primarily used for applying styles or scripting to small, inline portions of content, such as individual words, phrases, or icons within a larger block of text.
+->It's useful when you need to target a specific piece of text without disrupting the overall document flow.
+->Does not carry any inherent semantic meaning on its own; it's a generic inline container.
+->Examples: changing the color of a specific word, highlighting a phone number, or applying a specific font style to a part of a sentence.
+
+3)What are semantic HTML elements? Give examples.
+
+Semantic HTML elements are HTML tags that clearly describe their meaning to both the browser and the developer. 
+->Unlike non-semantic elements like <div> and <span>, which only define content as a container, semantic elements tell you something about the type of content they contain.
+
+The main purpose of semantic HTML is to:
+
+1)Improve Accessibility: Screen readers and other assistive technologies can better interpret the structure and meaning of your content, providing a more navigable experience for users with disabilities.
+2)Enhance SEO (Search Engine Optimization): Search engines can better understand the context and hierarchy of your content, potentially leading to better ranking.
+3)Improve Code Readability and Maintainability: Developers can more easily understand the purpose of different parts of the code, making collaboration and maintenance simpler.
+4)Promote Consistency: Encourages developers to structure content in a more standardized and logical way.
+Think of it this way:
+
+A <div> might simply be a box.
+A <nav> is a box specifically for navigation links.
+An <article> is a box specifically for self-contained content.
+Here are some common examples of semantic HTML elements and their typical uses:
+
+i)<header>:
+
+Meaning: Represents introductory content, typically a group of introductory or navigational aids.
+Use: Often contains headings (<h1>-<h6>), logos, navigation links, and search forms. A page can have multiple <header> elements (e.g., one for the entire page, and one for a specific <article>).
+Example:
+HTML
+
+<header>
+    <h1>My Awesome Website</h1>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+        </ul>
+    </nav>
+</header>
+
+2)<nav>:
+
+Meaning: Represents a section of a page that contains navigation links, either to other parts of the current document or to other documents.
+Use: Main menus, table of contents, breadcrumbs.
+Example:
+HTML
+
+<nav>
+    <ul>
+        <li><a href="#section1">Section One</a></li>
+        <li><a href="#section2">Section Two</a></li>
+    </ul>
+</nav>
+
+3)<main>:
+
+Meaning: Represents the dominant content of the <body> of a document. It should be unique to that document and not contain content that is repeated across documents (like sidebars, navigation links, copyright information, etc.).
+Use: The primary content area of your page. There should only be one <main> element per document.
+Example:
+HTML
+
+<main>
+    <h2>Welcome to our site!</h2>
+    <p>This is the main content area of the page.</p>
+</main>
+
+4)<article>:
+
+Meaning: Represents a self-contained composition in a document, page, application, or site that is independently distributable or reusable.
+Use: Blog posts, news articles, comments, forum posts, a single product in an e-commerce site. It should make sense on its own if removed from the rest of the page.
+Example:
+HTML
+
+<article>
+    <h2>My Blog Post Title</h2>
+    <p>This is the content of my blog post.</p>
+    <footer>
+        <p>Published on June 4, 2025 by Golla Manoj</p>
+    </footer>
+</article>
+
+5)<section>:
+
+Meaning: Represents a standalone section of a document, which doesn't have a more specific semantic element to represent it.
+Use: Grouping related content within an <article> or within the <main> area. Think of it as thematic grouping.
+Important: A section should typically have a heading (<h1>-<h6>) to define its content.
+Example:
+HTML
+
+<section>
+    <h2>About Us</h2>
+    <p>We are a company dedicated to...</p>
+</section>
+<section>
+    <h2>Our Services</h2>
+    <ul>
+        <li>Web Design</li>
+        <li>Development</li>
+    </ul>
+</section>
+
+6)<aside>:
+
+Meaning: Represents a section of a document whose content is only indirectly related to the document's main content.
+Use: Sidebars, pull quotes, advertising blocks, author information.
+Example:
+HTML
+
+<aside>
+    <h3>Related Articles</h3>
+    <ul>
+        <li><a href="#">Article 1</a></li>
+        <li><a href="#">Article 2</a></li>
+    </ul>
+</aside>
+
+7)<footer>:
+
+Meaning: Represents a footer for its nearest sectioning content or sectioning root element.
+Use: Typically contains copyright information, contact information, author information, sitemaps, or related links.
+Example:
+HTML
+
+<footer>
+    <p>&copy; 2025 My Website. All rights reserved.</p>
+    <p>Contact us at info@example.com</p>
+</footer>
+
+8)<figure> and <figcaption>:
+
+Meaning: <figure> is used to encapsulate self-contained content (like images, diagrams, code snippets, videos) that is referenced from the main flow of the document, and <figcaption> provides a caption for the <figure> element.
+Use: Displaying images with captions, code examples, or charts.
+Example:
+HTML
+
+<figure>
+    <img src="flower.jpg" alt="A beautiful flower">
+    <figcaption>Fig. 1: A close-up of a vibrant red rose.</figcaption>
+</figure>
+By using these semantic elements, you build a more robust, accessible, and understandable web page.
+
+🎯 Task:
+Create a basic personal homepage in HTML with:
+
+A heading (<h1>) that shows your name
+
+A short paragraph introducing yourself
+
+An unordered list of 3 hobbies
+
+A link to your favorite website
+
+Save it as index.html and open it in a browser.
