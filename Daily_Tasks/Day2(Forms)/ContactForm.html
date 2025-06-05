@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="contactform.css">
+    <title>Contact Us</title>
+</head>
+<body>
+
+    <h1>Contact Us</h1>
+
+    <!--
+        The <form> element defines an HTML form for user input.
+        - action="#" means the form will submit to the current page (you'd typically replace this with a server-side script URL).
+        - method="post" specifies that form data will be sent as an HTTP POST request.
+    -->
+    <form action="#" method="post">
+        <!--
+            A <div> element is used here as a container to group each form field (label + input)
+            for better organization and styling.
+        -->
+        <div>
+            <!--
+                <label> element provides a caption for an item in a user interface.
+                The 'for' attribute should match the 'id' of the input it labels for accessibility.
+            -->
+            <label for="full_name">Full Name:</label>
+            <!--
+                <input type="text"> creates a single-line text input field.
+                - id: Unique identifier for the input, linked to the label.
+                - name: The name of the input, used when submitting form data to the server.
+                - required: Makes this field mandatory for submission.
+            -->
+            <input type="text" id="full_name" name="full_name" required>
+        </div>
+
+        <div>
+            <label for="email">Email:</label>
+            <!--
+                <input type="email"> creates an input field specifically for email addresses.
+                Browsers often provide basic email format validation.
+            -->
+            <input type="email" id="email" name="email" required>
+        </div>
+
+        <div>
+            <label for="subject">Subject:</label>
+            <!--
+                <select> creates a dropdown list.
+                - id: Unique identifier.
+                - name: Name for form submission.
+                - required: Makes selection mandatory.
+            -->
+            <select id="subject" name="subject" required>
+                <!--
+                    <option> defines an item in a dropdown list.
+                    - value: The value sent to the server when this option is selected.
+                    The first option often serves as a placeholder or instruction.
+                -->
+                <option value="">--Please choose an option--</option>
+                <option value="general_inquiry">General Inquiry</option>
+                <option value="technical_support">Technical Support</option>
+                <option value="feedback">Feedback</option>
+            </select>
+        </div>
+
+        <div>
+            <label for="message">Message:</label>
+            <!--
+                <textarea> creates a multi-line text input area.
+                - id: Unique identifier.
+                - name: Name for form submission.
+                - rows: Specifies the visible number of lines in the text area.
+                - required: Makes this field mandatory.
+            -->
+            <textarea id="message" name="message" rows="6" required></textarea>
+        </div>
+
+        <div>
+            <!--
+                <button type="submit"> creates a button that, when clicked, submits the form.
+            -->
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+
+</body>
+</html>
