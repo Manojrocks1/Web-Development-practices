@@ -1,0 +1,388 @@
+🖼️ Embedding Images
+Use the <img> tag to add an image:
+
+<img src="profile.jpg" alt="My Profile Picture" width="200" height="200">
+src: path to the image (local or URL)
+
+alt: alternate text (important for accessibility)
+
+width and height: optional for resizing
+
+Embedding Audio
+
+HTML Code:
+
+     <audio>
+        <source src="song.mp3" type="audio/mpeg">
+           Your browser does not support the audio element.
+      </audio>
+
+  .controls: shows play/pause/volume controls
+  .Always provide a fallback text
+ 
+🎥 Embedding Video
+
+<video width="400" controls>
+  <source src="video.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+ .Can include autoplay, loop, muted, poster attributes
+
+💬 Interview Questions
+1)How do you embed an image in HTML?
+
+->To embed an image in HTML, you use the <img> tag. 
+->This is an empty (or self-closing) tag, meaning it doesn't have a separate closing tag like <p> or <div>.
+
+The <img> tag requires at least two essential attributes to work correctly:
+
+src (source): This attribute specifies the path or URL to the image file you want to display. 
+The value can be:
+ .Relative path: If the image is in the same directory as your HTML file, or in a subdirectory relative to it.
+    .Example: <img src="my-image.jpg">
+    .Example (in a subdirectory): <img src="images/my-image.png">
+  .Absolute URL: If the image is hosted on another website or a specific web address.
+     .Example: <img src="https://www.example.com/images/logo.gif">
+2)alt (alternative text): This attribute provides a textual description of the image. It's crucial for:
+  .Accessibility: Screen readers (used by visually impaired users) read this text aloud, 
+    so users know what the image represents.
+  .SEO (Search Engine Optimization): Search engines use "alt" text to understand
+   the content of the image.
+  .Fallback: If the image fails to load (due to a broken src path, network issues, etc.), 
+   this text will be displayed in its place.
+  .Best Practice: Always provide meaningful alt text. If an image is purely decorative and doesn't convey important information, you can use an empty alt="" to tell screen readers to skip it.
+Basic Syntax:
+HTML code:
+
+<img src="path/to/your/image.jpg" alt="Description of the image content">
+
+Common Optional Attributes:
+While src and alt are mandatory, you can use other attributes to control the image's 
+  appearance and behavior:
+
+.width and height:
+
+  .Specify the dimensions of the image in pixels.
+  .Example: <img src="image.jpg" alt="A beautiful landscape" width="500" height="300">
+  .Best Practice: Specifying width and height helps browsers reserve the necessary
+   space before the image loads, which can prevent Cumulative Layout Shift (CLS) 
+  and improve page loading experience.
+->However, for responsive design, it's often better to control dimensions with CSS (e.g., width: 100%; height: auto;).
+title:
+
+  .Provides a tooltip that appears when the user hovers their mouse over the image. This offers additional information, not a replacement for alt.
+  Example: <img src="image.jpg" alt="A beautiful landscape" title="A stunning view from the mountain peak.">
+ loading="lazy":
+
+A performance attribute that tells the browser to defer loading of the image until it is near the viewport. This can significantly speed up initial page load times, especially for pages with many images.
+Example: <img src="image.jpg" alt="A beautiful landscape" loading="lazy">
+srcset and sizes:
+
+Used for responsive images, allowing you to provide different image files for different screen sizes, resolutions, or device pixel ratios. This ensures users download the most appropriate image, saving bandwidth and improving performance. This is more advanced.
+Example with different paths:
+1. Image in the same directory:
+
+If your HTML file (index.html) and image file (flower.jpg) are in the same folder:
+
+HTML
+
+<!-- index.html -->
+<img src="flower.jpg" alt="A vibrant red flower in bloom.">
+2. Image in a subdirectory:
+
+If your image is in a folder named images within the same directory as your HTML file:
+
+HTML
+
+<!-- index.html -->
+<img src="images/flower.jpg" alt="A vibrant red flower in bloom.">
+3. Image using an absolute URL:
+
+If your image is hosted online:
+
+HTML
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Red_Flower.jpg/640px-Red_Flower.jpg" 
+     alt="A vibrant red flower in bloom, sourced from Wikipedia.">
+Always remember to use meaningful alt text and consider optimizing image file sizes for web performance!
+2)What are the different formats supported in <audio> and <video>?
+->Both the <audio> and <video> HTML elements support a variety of media formats,
+  but browser compatibility can vary.
+->To ensure your media plays across as many browsers as possible, it's a common
+ practice to provide multiple <source> elements within the <audio> or <video> tags,
+ each pointing to the same content but in a different format. 
+->The browser will then choose the first format it supports.
+
+Here are the most commonly supported and recommended formats:
+
+For "<audio>"(Audio Formats):
+->The <audio> element aims to provide widespread support for common audio formats. 
+->The primary goal is to balance compression (smaller file size) with quality
+  and broad browser compatibility.
+1. MP3(MPEG-1 Audio Layer III)
+   .MIME Type: audio/mpeg
+  .Characteristics: Very widely supported, well-known for good compression with acceptable quality.
+->It's often the most compatible choice.
+ .Browser Support: Excellent across virtually all modern browsers (Chrome, Firefox, Safari, Edge, Opera, etc.).
+
+2. Ogg Vorbis(.ogg)
+  .MIME Type: audio/ogg
+  .Characteristics: An open-source, royalty-free lossy compression format. 
+->Offers good quality, often comparable to or better than MP3 at similar bitrates.
+  .Browser Support: Good support in Firefox, Chrome, and Opera. 
+->Safari has historically had limited or no native support,
+  but newer versions (Safari 15+ and macOS Monterey) are improving Opus support 
+  within WebM/Ogg.
+
+3. WAV(Waveform Audio File Format)
+  .MIME Type: audio/wav
+  .Characteristics: Uncompressed audio, meaning it retains high fidelity but results
+  in very large file sizes.
+->Primarily used for professional audio editing or very short sound effects where file size isn't a concern.
+  .Browser Support: Generally well-supported across browsers, but due to file size,
+  it's less common for web streaming.
+
+4. AAC(Advanced Audio Coding)
+
+  .MIME Type: audio/aac or audio/mp4 (when in an MP4 container, often with .m4a extension)
+  .Characteristics: Designed as the successor to MP3, offering better 
+   compression efficiency and sound quality.
+->Common on Apple platforms and streaming services.
+  .Browser Support: Widely supported, especially in Safari and Chrome.
+->Firefox and Edge often rely on the operating system's native support.
+
+Both the <audio> and <video> HTML elements support a variety of media
+ formats, but browser compatibility can vary. 
+->To ensure your media plays across as many browsers as possible, it's a common
+  practice to provide multiple <source> elements within the 
+ <audio> or <video> tags, each pointing to the same content but in a different format.
+->The browser will then choose the first format it supports.
+
+Here are the most commonly supported and recommended formats:
+
+For <audio> (Audio Formats):
+The <audio> element aims to provide widespread support for common audio formats. The primary goal is to balance compression (smaller file size) with quality and broad browser compatibility.
+
+1)MP3 (MPEG-1 Audio Layer III)
+
+MIME Type: audio/mpeg
+Characteristics: Very widely supported, well-known for good compression with acceptable quality. It's often the most compatible choice.
+Browser Support: Excellent across virtually all modern browsers (Chrome, Firefox, Safari, Edge, Opera, etc.).
+
+2)Ogg Vorbis (.ogg)
+
+ .MIME Type: audio/ogg
+ .Characteristics: An open-source, royalty-free lossy compression format. 
+->Offers good quality, often comparable to or better than MP3 at similar bitrates.
+ .Browser Support: Good support in Firefox, Chrome, and Opera. Safari has
+ historically had limited or no native support, but newer versions 
+(Safari 15+ and macOS Monterey) are improving Opus support within WebM/Ogg.
+
+3)WAV (Waveform Audio File Format).
+
+ .MIME Type: audio/wav
+ .Characteristics: Uncompressed audio, meaning it retains high fidelity but results in very large file sizes. 
+->Primarily used for professional audio editing or very short sound effects where
+  file size isn't a concern.
+ .Browser Support: Generally well-supported across browsers, but due to file size, it's less common for web streaming.
+
+4)AAC (Advanced Audio Coding)
+
+ .MIME Type: audio/aac or audio/mp4 (when in an MP4 container, often with .m4a extension)
+ .Characteristics: Designed as the successor to MP3, offering better compression efficiency and sound quality. 
+->Common on Apple platforms and streaming services.
+ .Browser Support: Widely supported, especially in Safari and Chrome. 
+->Firefox and Edge often rely on the operating system's native support.
+Example for Audio:
+
+Html code:
+
+<audio controls>
+  <source src="audio/mysong.mp3" type="audio/mpeg">
+  <source src="audio/mysong.ogg" type="audio/ogg">
+  Your browser does not support the audio element.
+</audio>
+
+For <video>(Video Formats):
+
+->Similar to audio, video formats combine a container format (like MP4, WebM, Ogg) 
+ with video codecs (like H.264, VP8, VP9, Theora) and audio codecs (like AAC, Vorbis, Opus).
+
+i)MP4 (MPEG-4 Part 14):
+
+ .MIME Type: video/mp4
+ .Video Codec: H.264 (AVC) is the most common.
+->Newer versions might use H.265 (HEVC).
+ .Audio Codec: AAC is typically used.
+ .Characteristics: The most widely supported video format across almost all modern browsers, devices, and platforms. It offers a good balance of quality and compression.
+ .Browser Support: Excellent across Chrome, Safari, Edge, Firefox, and Opera.
+->This is often your primary choice.
+ii)WebM
+
+ .MIME Type: video/webm
+ .Video Codec: VP8 or VP9 (both open-source, royalty-free).
+ .Audio Codec: Vorbis or Opus (both open-source, royalty-free).
+ .Characteristics: Developed by Google as an open, royalty-free alternative. 
+->Offers good compression and quality, particularly for web streaming.
+ .Browser Support: Well-supported in Chrome, Firefox, and Opera. 
+->Safari has gained VP9/WebM support in newer versions.
+
+iii) Ogg(.ogv)
+ .MIME Type: video/ogg
+ .Video Codec: Theora (open-source, royalty-free)
+ .Audio Codec: Vorbis or Opus.
+ .Characteristics: An older open-source container format. 
+->While still supported, WebM generally offers better performance and quality for web video.
+ .Browser Support: Supported by Firefox, Chrome, and Opera, but less universally than MP4 or WebM.
+
+Both the <audio> and <video> HTML elements support a variety of media formats, but browser compatibility can vary. To ensure your media plays across as many browsers as possible, it's a common practice to provide multiple <source> elements within the <audio> or <video> tags, each pointing to the same content but in a different format. The browser will then choose the first format it supports.
+
+Here are the most commonly supported and recommended formats:
+
+For <audio> (Audio Formats):
+The <audio> element aims to provide widespread support for common audio formats. The primary goal is to balance compression (smaller file size) with quality and broad browser compatibility.
+
+MP3 (MPEG-1 Audio Layer III)
+
+MIME Type: audio/mpeg
+Characteristics: Very widely supported, well-known for good compression with acceptable quality. It's often the most compatible choice.
+Browser Support: Excellent across virtually all modern browsers (Chrome, Firefox, Safari, Edge, Opera, etc.).
+Ogg Vorbis (.ogg)
+
+MIME Type: audio/ogg
+Characteristics: An open-source, royalty-free lossy compression format. Offers good quality, often comparable to or better than MP3 at similar bitrates.
+Browser Support: Good support in Firefox, Chrome, and Opera. Safari has historically had limited or no native support, but newer versions (Safari 15+ and macOS Monterey) are improving Opus support within WebM/Ogg.
+WAV (Waveform Audio File Format)
+
+MIME Type: audio/wav
+Characteristics: Uncompressed audio, meaning it retains high fidelity but results in very large file sizes. Primarily used for professional audio editing or very short sound effects where file size isn't a concern.
+Browser Support: Generally well-supported across browsers, but due to file size, it's less common for web streaming.
+AAC (Advanced Audio Coding)
+
+MIME Type: audio/aac or audio/mp4 (when in an MP4 container, often with .m4a extension)
+Characteristics: Designed as the successor to MP3, offering better compression efficiency and sound quality. Common on Apple platforms and streaming services.
+Browser Support: Widely supported, especially in Safari and Chrome. Firefox and Edge often rely on the operating system's native support.
+Example for Audio:
+
+HTML
+
+<audio controls>
+  <source src="audio/mysong.mp3" type="audio/mpeg">
+  <source src="audio/mysong.ogg" type="audio/ogg">
+  Your browser does not support the audio element.
+</audio>
+For <video> (Video Formats):
+Similar to audio, video formats combine a container format (like MP4, WebM, Ogg) with video codecs (like H.264, VP8, VP9, Theora) and audio codecs (like AAC, Vorbis, Opus).
+
+MP4 (MPEG-4 Part 14)
+
+MIME Type: video/mp4
+Video Codec: H.264 (AVC) is the most common. Newer versions might use H.265 (HEVC).
+Audio Codec: AAC is typically used.
+Characteristics: The most widely supported video format across almost all modern browsers, devices, and platforms. It offers a good balance of quality and compression.
+Browser Support: Excellent across Chrome, Safari, Edge, Firefox, and Opera. This is often your primary choice.
+WebM
+
+MIME Type: video/webm
+Video Codec: VP8 or VP9 (both open-source, royalty-free).
+Audio Codec: Vorbis or Opus (both open-source, royalty-free).
+Characteristics: Developed by Google as an open, royalty-free alternative. Offers good compression and quality, particularly for web streaming.
+Browser Support: Well-supported in Chrome, Firefox, and Opera. Safari has gained VP9/WebM support in newer versions.
+Ogg (.ogv)
+
+MIME Type: video/ogg
+Video Codec: Theora (open-source, royalty-free).
+Audio Codec: Vorbis or Opus.
+Characteristics: An older open-source container format. While still supported, WebM generally offers better performance and quality for web video.
+Browser Support: Supported by Firefox, Chrome, and Opera, but less universally than MP4 or WebM.
+Example for Video:
+
+HTML
+
+<video controls width="640" height="360">
+  <source src="video/myvideo.mp4" type="video/mp4">
+  <source src="video/myvideo.webm" type="video/webm">
+  <source src="video/myvideo.ogg" type="video/ogg">
+  Your browser does not support the video tag.
+</video>
+
+3)Why is the alt attribute important for images?
+
+->The alt (alternative text) attribute in the HTML <img> tag is incredibly 
+important for several key reasons, primarily related to accessibility, SEO, and
+  user experience when images fail to load.
+
+Here's why it's crucial:
+ 
+1)Accessibilty(for Visually Impaired Users)
+This is most critical reason for using "alt" text.
+
+ .Screen Readers: People with visual impairments use assistive technologies like screen readers.
+->These devices cannot "see" images.
+-> When a screen reader encounters an <img> tag, it reads the alt attribute's
+  text aloud to describe the image content to the user. 
+->Without alt text, the screen reader might only announce "image" or the 
+ file name, leaving the user with no context about what the image conveys.
+ .
+ .Context and Understanding:
+-> Good alt text provides an equivalent textual description of the image, allowing
+ visually impaired users to understand the information, purpose, or context that the 
+ image adds to the web page.
+
+ii)SEO(Search Engine Optimization):
+  .Image comprehension: Search engines (like Google) crawl web pages to
+  understand their content.
+->While they are getting better at image recognition, they still rely heavily on 
+ alt text to comprehend what an image is about.
+->Images themselves are difficult for search engine algorithms to "read."
+ .Ranking: Descriptive alt text helps search engines index images accurately.
+->This means your images are more likely to appear in relevant image 
+ search results, driving more organic traffic to your website.
+  .Overall Page Context: Alt text contributes to the overall keyword relevance 
+ and context of your web page, potentially improving its ranking for relevant searches, not just image searches.
+
+iii)Fallback(When Images Don't Load):
+ .User Experience: If an image fails to load 
+ (due to a broken src path, slow internet connection, browser settings blocking images, or a server issue), 
+ the alt text is displayed in place of the image. 
+ ->This provides users with essential information 
+ about what they are missing, preventing a confusing or blank space on the page.
+
+.Graceful Degradation: 
+->It ensures that your content remains understandable and usable even 
+ when the visual elements aren't available.
+
+                                                        How to Write Good "alt" Text:
+ .Be Descriptive and Concise: 
+->Describe the image's content and purpose clearly and succinctly.
+->Aim for around 125 characters, but prioritize clarity.
+ .Focus on Purpose, Not just Appearance:
+->Instead of  "Picture of a dog", consider "Golden Retriever playing fetch in a park".
+ 
+Avoid Redundancy: Don't start with "Image of..." or "Photo of..." – screen readers
+ already announce that it's an image.
+ .Include Keywords Naturally (but don't stuff): 
+->If relevant, include keywords related to your page's content, but avoid "keyword stuffing," as this can be penalized by search engines.
+ .For Decorative Images:
+->If an image is purely decorative and doesn't convey any important information
+ (e.g., a background pattern, a simple border), use an empty alt="" attribute. 
+->This tells screen readers to ignore it, preventing unnecessary "noise."
+
+🎯 Task of the Day
+Create a file called media.html and do the following:
+
+
+Add an image of your favorite place or memory using <img>.
+
+Embed an audio file (e.g., a short music clip or sound effect).
+
+Embed a video (e.g., any MP4 demo or intro video).
+
+✨ Bonus: Use <figure> and <figcaption> to describe the media.
+
+Example:
+
+<figure>
+  <img src="beach.jpg" alt="Vacation at beach" width="300">
+  <figcaption>My trip to Goa</figcaption>
+</figure>

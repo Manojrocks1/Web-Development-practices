@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Favorite Media</title>
+</head>
+<body>
+    <h1>My Favorite Memories & Media Showcase</h1>
+
+    <!-- 
+        Figure 1: Image of a Favorite Place/Memory
+        The <figure> element is used to group media content (like images, videos, audio) 
+        and its caption (<figcaption>) semantically. 
+        The <figcaption> provides a description or title for the media.
+    -->
+    <div class="media-container">
+        <figure>
+            <!-- 
+                <img> tag to embed an image.
+                - src: Points to the image source. Placeholder used; replace with your image URL.
+                - alt: Provides alternative text for accessibility if the image cannot be displayed.
+                - class: Tailwind classes for styling (width, rounded corners, shadow).
+            -->
+            <img src="https://placehold.co/800x450/A3C2F7/000?text=My+Favorite+Mountain+View" 
+                 alt="A serene mountain landscape at sunset, evoking a favorite memory." 
+                 class="w-full rounded-lg shadow-md">
+            <figcaption>
+                A breathtaking sunset over majestic mountains – a cherished memory of tranquility and beauty.
+                <br>
+            </figcaption>
+        </figure>
+    </div>
+
+    <div class="media-container">
+        <figure>
+            <audio controls class="w-full">
+                <!-- 
+                    <source> can be used for different audio formats, but src on <audio> is simpler for one.
+                    Placeholder used; replace 'path/to/your/audio.mp3' with your actual audio file.
+                -->
+                <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+            <figcaption>
+                A short instrumental piece – a sound that reminds me of peaceful moments.
+                <br>
+                <small>*(Replace this audio URL with your own sound clip!)*</small>
+            </figcaption>
+        </figure>
+    </div>
+    <div class="media-container">
+        <figure>
+            <video controls class="w-full" poster="https://placehold.co/800x450/B8C2D9/4A5568?text=Video+Thumbnail">
+                <!-- 
+                    <source> can be used for different video formats, but src on <video> is simpler for one.
+                    Placeholder used; replace 'path/to/your/video.mp4' with your actual video file.
+                -->
+                <source src="https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <figcaption>
+                A short demo video showcasing a beautiful animation sequence.
+                <br>
+                <small>*(Replace this video URL with your own video file!)*</small>
+            </figcaption>
+        </figure>
+    </div>
+</body>
+</html>
